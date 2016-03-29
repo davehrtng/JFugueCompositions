@@ -19,17 +19,24 @@ public class LazyBassDriven extends Composition {
 
     private static final Pattern DRUMS_;
     static {
-	Rhythm rhythm = new Rhythm().addLayer("O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.");
+	Rhythm rhythm = new Rhythm()
+		.addLayer("O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.");
 	DRUMS_ = rhythm.getPattern().repeat(NUMBER_OF_MEASURES_);
     }
 
-    private static final Pattern BASS_ = new Pattern().setVoice(0).setInstrument(Instrument.SYNTH_LEAD_BASS.getMidiCode()).add(REST_FOUR_MEASURES_)
+    private static final Pattern BASS_ = new Pattern().setVoice(0)
+	    .setInstrument(Instrument.SYNTH_LEAD_BASS.getMidiCode())
+	    .add(REST_FOUR_MEASURES_)
 	    .add(new Pattern(BASS_LINE_).repeat(NUMBER_OF_MEASURES_ - 1));
 
-    private static final Pattern PAD_ = new Pattern().setVoice(1).setInstrument(Instrument.SYNTH_PAD_SWEEP.getMidiCode()).add(new Pattern(REST_FOUR_MEASURES_).repeat(3))
+    private static final Pattern PAD_ = new Pattern().setVoice(1)
+	    .setInstrument(Instrument.SYNTH_PAD_SWEEP.getMidiCode())
+	    .add(new Pattern(REST_FOUR_MEASURES_).repeat(3))
 	    .add(new Pattern(PAD_CHORDS_).repeat(NUMBER_OF_MEASURES_ - 3));
 
-    private static final Pattern GUITAR_ = new Pattern().setVoice(2).setInstrument(Instrument.GUITAR_DISTORTED.getMidiCode()).add(new Pattern(REST_FOUR_MEASURES_).repeat(5))
+    private static final Pattern GUITAR_ = new Pattern().setVoice(2)
+	    .setInstrument(Instrument.GUITAR_DISTORTED.getMidiCode())
+	    .add(new Pattern(REST_FOUR_MEASURES_).repeat(5))
 	    .add(new Pattern(GUITAR_LINE_).repeat(NUMBER_OF_MEASURES_ - 5));
 
     private static final Pattern[] PARTS_ = { DRUMS_, BASS_, PAD_, GUITAR_ };
@@ -52,7 +59,7 @@ public class LazyBassDriven extends Composition {
 
     public static void main(String... args) {
 	LazyBassDriven composition = new LazyBassDriven();
-	// composition.perform();
-	composition.generateMidi();
+	composition.perform();
+	// composition.generateMidi();
     }
 }

@@ -19,7 +19,9 @@ public enum Instrument {
 
     SYNTH_LEAD_BASS(88),
 
-    SYNTH_PAD_SWEEP(96);
+    SYNTH_PAD_SWEEP(96),
+
+    PIANO(0);
 
     private int midiCode_;
 
