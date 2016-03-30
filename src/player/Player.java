@@ -17,15 +17,16 @@ public class Player {
 	compositions.add(new Triplets());
     }
 
-    public void generateAllMidi() {
+    public static void generateAllMidi() {
 	compositions.forEach(composition -> composition.generateMidi());
     }
 
     /**
      * Use this method to perform compositions or generate midi.
      */
-    public static void main() {
-	Composition composition = new Triplets();
-	composition.perform();
+    public static void main(String... args) {
+	// Composition composition = new Triplets();
+	// composition.perform();
+	generateAllMidi();
     }
 }
