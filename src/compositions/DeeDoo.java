@@ -40,10 +40,4 @@ public class DeeDoo extends Composition {
     public DeeDoo() {
 	addParts(DRUMS_, FLUTE_, CHOIR_, GUITAR_);
     }
-
-    public static void main(String[] args) {
-	DeeDoo composition = new DeeDoo();
-	composition.perform();
-	// composition.generateMidi();
-    }
 }

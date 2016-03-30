@@ -42,10 +42,4 @@ public class LazyBassDriven extends Composition {
     public LazyBassDriven() {
 	addParts(DRUMS_, BASS_, PAD_, GUITAR_);
     }
-
-    public static void main(String... args) {
-	LazyBassDriven composition = new LazyBassDriven();
-	// composition.perform();
-	composition.generateMidi();
-    }
 }

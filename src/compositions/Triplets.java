@@ -43,11 +43,4 @@ public class Triplets extends Composition {
     public Triplets() {
 	addParts(PIANO_CHORDS_, DRUMS_);
     }
-
-    public static void main(String... args) {
-	Triplets composition = new Triplets();
-	composition.perform();
-	// composition.generateMidi();
-    }
-
 }

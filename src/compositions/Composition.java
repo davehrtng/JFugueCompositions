@@ -77,14 +77,14 @@ public abstract class Composition {
      */
     public void generateMidi() {
 
+	String midiFilePath = GENERATED_MIDI_DIRECTORY_
+		+ this.getClass().getSimpleName() + "." + MIDI_FILE_EXTENSION_;
 	try {
 	    Player player = new Player();
 	    Sequence sequence = player.getSequence(getParts());
-	    MidiFileManager.save(sequence, new File(GENERATED_MIDI_DIRECTORY_
-		    + this.getClass().getSimpleName() + "."
-		    + MIDI_FILE_EXTENSION_));
+	    MidiFileManager.save(sequence, new File(midiFilePath));
 	} catch (Exception exception) {
-	    System.err.println("The midi file " + getMidiFileName()
+	    System.err.println("The midi file " + midiFilePath
 		    + " was not generated.");
 	}
     }
