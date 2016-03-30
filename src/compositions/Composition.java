@@ -14,7 +14,7 @@ public abstract class Composition {
     /**
      * Directory to put generated midi files into
      */
-    private static final String GENERATED_MIDI_DIRECTORY_ = "C:\\Users\\David\\workspace\\JFugueComposition\\generated\\midi\\";
+    private static final String GENERATED_MIDI_DIRECTORY_ = "C:\\Users\\David\\workspace\\Compositions\\generated\\midi\\";
 
     /**
      * File extension for MIDI files
@@ -37,12 +37,6 @@ public abstract class Composition {
     private Pattern[] getParts() {
 	return partList.toArray(new Pattern[partList.size()]);
     }
-
-    /**
-     * @return the name to give the generated midi file of this composition,
-     *         excluding period and file extension.
-     */
-    protected abstract String getMidiFileName();
 
     /**
      * Adds a part to the composition. All parts will be played simultaneously
@@ -87,8 +81,9 @@ public abstract class Composition {
 	    Player player = new Player();
 	    Sequence sequence = player.getSequence(getParts());
 	    MidiFileManager.save(sequence, new File(GENERATED_MIDI_DIRECTORY_
-		    + getMidiFileName() + "." + MIDI_FILE_EXTENSION_));
-	} catch (Exception e) {
+		    + this.getClass().getSimpleName() + "."
+		    + MIDI_FILE_EXTENSION_));
+	} catch (Exception exception) {
 	    System.err.println("The midi file " + getMidiFileName()
 		    + " was not generated.");
 	}

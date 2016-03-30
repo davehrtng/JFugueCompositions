@@ -40,23 +40,12 @@ public class LazyBassDriven extends Composition {
 	    .add(new Pattern(GUITAR_LINE_).repeat(NUMBER_OF_MEASURES_ - 5));
 
     public LazyBassDriven() {
-	addPart(DRUMS_);
-	addPart(BASS_);
-	addPart(PAD_);
-	addPart(GUITAR_);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getMidiFileName() {
-	return this.getClass().getSimpleName();
+	addParts(DRUMS_, BASS_, PAD_, GUITAR_);
     }
 
     public static void main(String... args) {
 	LazyBassDriven composition = new LazyBassDriven();
-	composition.perform();
-	// composition.generateMidi();
+	// composition.perform();
+	composition.generateMidi();
     }
 }

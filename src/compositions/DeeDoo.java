@@ -41,14 +41,6 @@ public class DeeDoo extends Composition {
 	addParts(DRUMS_, FLUTE_, CHOIR_, GUITAR_);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected String getMidiFileName() {
-	return this.getClass().getSimpleName();
-    }
-
     public static void main(String[] args) {
 	DeeDoo composition = new DeeDoo();
 	composition.perform();

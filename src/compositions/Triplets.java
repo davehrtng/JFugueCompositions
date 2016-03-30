@@ -6,20 +6,16 @@ import org.jfugue.rhythm.Rhythm;
 import enumeration.Instrument;
 
 /*
- * D + F# + B (C E A)
- * D + F# + C# (C E B)
- * E + F# + C# (D E B)
- * E + G# + C# (D F# B)
+ * D + F# + B 
+ * D + F# + C# 
+ * E + F# + C# 
+ * E + G# + C# 
  */
-
 public class Triplets extends Composition {
 
     private static int NUMBER_OF_HYPERMEASURES_ = 5;
 
     private static int NUMBER_OF_MEASURES_PER_HYPERMEASURE_ = 4;
-
-    private static final Pattern HYPERMEASURE_REST = new Pattern(
-	    "Rw | Rw | Rw | Rw");
 
     private static final Pattern PIANO_CHORDS_ = new Pattern().setVoice(0)
 	    .setInstrument(Instrument.PIANO.getMidiCode())
@@ -29,8 +25,6 @@ public class Triplets extends Composition {
 
     private static final Pattern DRUMS_ = new Pattern().setVoice(1).add(
 	    createRhythm());
-
-    private static final Pattern[] PARTS_ = { PIANO_CHORDS_, DRUMS_ };
 
     private static final Pattern createRhythm() {
 
@@ -48,12 +42,6 @@ public class Triplets extends Composition {
 
     public Triplets() {
 	addParts(PIANO_CHORDS_, DRUMS_);
-    }
-
-    @Override
-    protected String getMidiFileName() {
-	// TODO: can this line of code go in the abstract parent class?
-	return this.getClass().getSimpleName();
     }
 
     public static void main(String... args) {
