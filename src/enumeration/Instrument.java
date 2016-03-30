@@ -9,6 +9,10 @@ public enum Instrument {
 
     BASS(36),
 
+    CHOIR_AAH(52),
+
+    CHOIR_OOH(53),
+
     GUITAR_DISTORTED(31),
 
     GUITAR_OVERDRIVEN(30),
@@ -20,6 +24,18 @@ public enum Instrument {
     SYNTH_LEAD_BASS(88),
 
     SYNTH_PAD_SWEEP(96),
+
+    SYNTH_SQUARE(81),
+
+    SYNTH_SAWTOOTH(82),
+
+    SYNTH_CALIOPE(83),
+
+    SYNTH_CHIFF(84),
+
+    SYNTH_CHARANG(85),
+
+    SYNTH_VOICE(86),
 
     PIANO(0);
 

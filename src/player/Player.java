@@ -25,8 +25,6 @@ public class Player {
      * Use this method to perform compositions or generate midi.
      */
     public static void main(String... args) {
-	// Composition composition = new Triplets();
-	// composition.perform();
 	generateAllMidi();
     }
 }
