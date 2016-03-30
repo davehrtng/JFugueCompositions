@@ -1,6 +1,8 @@
 package compositions;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sound.midi.Sequence;
 
@@ -20,16 +22,52 @@ public abstract class Composition {
     private static final String MIDI_FILE_EXTENSION_ = "mid";
 
     /**
-     * Gets all the parts of the composition. Each part can be thought of as a track that will be started at the same time when the composition is played.
+     * List of all "parts" of the piece. All parts will be played
+     * simultaneously.
+     */
+    private List<Pattern> partList = new ArrayList<>();
+
+    /**
+     * Gets all the parts of the composition. Each part can be thought of as a
+     * track that will be started at the same time when the composition is
+     * played.
      * 
      * @return a collection of the parts of the composition
      */
-    public abstract Pattern[] getParts();
+    private Pattern[] getParts() {
+	return partList.toArray(new Pattern[partList.size()]);
+    }
 
     /**
-     * @return the name to give the generated midi file of this composition, excluding period and file extension.
+     * @return the name to give the generated midi file of this composition,
+     *         excluding period and file extension.
      */
     protected abstract String getMidiFileName();
+
+    /**
+     * Adds a part to the composition. All parts will be played simultaneously
+     * when the piece is performed. A part can be thought of a single person
+     * playing a single instrument in a band or orchestra.
+     * 
+     * @param part
+     *            a single part of the composition
+     */
+    protected void addPart(Pattern part) {
+	partList.add(part);
+    }
+
+    /**
+     * Add multiple parts to the composition in a single call. Convenience
+     * method that passes through to {@link #addPart(Pattern)}.
+     * 
+     * @param parts
+     *            array of parts to add to the composition
+     */
+    protected void addParts(Pattern... parts) {
+	for (Pattern part : parts) {
+	    addPart(part);
+	}
+    }
 
     /**
      * Plays the composition
@@ -40,16 +78,19 @@ public abstract class Composition {
     }
 
     /**
-     * Creates a midi file of the composition, saved into the "generated/midi" directory of this project
+     * Creates a midi file of the composition, saved into the "generated/midi"
+     * directory of this project
      */
     public void generateMidi() {
 
 	try {
 	    Player player = new Player();
 	    Sequence sequence = player.getSequence(getParts());
-	    MidiFileManager.save(sequence, new File(GENERATED_MIDI_DIRECTORY_ + getMidiFileName() + "." + MIDI_FILE_EXTENSION_));
+	    MidiFileManager.save(sequence, new File(GENERATED_MIDI_DIRECTORY_
+		    + getMidiFileName() + "." + MIDI_FILE_EXTENSION_));
 	} catch (Exception e) {
-	    System.err.println("The midi file " + getMidiFileName() + " was not generated.");
+	    System.err.println("The midi file " + getMidiFileName()
+		    + " was not generated.");
 	}
     }
 }

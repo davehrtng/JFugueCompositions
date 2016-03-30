@@ -39,14 +39,11 @@ public class LazyBassDriven extends Composition {
 	    .add(new Pattern(REST_FOUR_MEASURES_).repeat(5))
 	    .add(new Pattern(GUITAR_LINE_).repeat(NUMBER_OF_MEASURES_ - 5));
 
-    private static final Pattern[] PARTS_ = { DRUMS_, BASS_, PAD_, GUITAR_ };
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Pattern[] getParts() {
-	return PARTS_;
+    public LazyBassDriven() {
+	addPart(DRUMS_);
+	addPart(BASS_);
+	addPart(PAD_);
+	addPart(GUITAR_);
     }
 
     /**

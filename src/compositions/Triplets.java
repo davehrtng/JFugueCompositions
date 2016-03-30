@@ -44,23 +44,16 @@ public class Triplets extends Composition {
 				* NUMBER_OF_MEASURES_PER_HYPERMEASURE_)
 		.addRangedAltLayer(0, 0, 3, restMeasure)
 		.addRangedAltLayer(1, 0, 3, restMeasure).getPattern();
-	/*
-	 * .repeat(NUMBER_OF_HYPERMEASURES_
-	 * NUMBER_OF_MEASURES_PER_HYPERMEASURE_);
-	 */
     }
 
-    // TODO: refactor to hide PARTS_ and implement getParts in top level. add a
-    // protected addPart() that implementers call per part.
-    @Override
-    public Pattern[] getParts() {
-	return PARTS_;
+    public Triplets() {
+	addParts(PIANO_CHORDS_, DRUMS_);
     }
 
     @Override
     protected String getMidiFileName() {
-	// TODO Auto-generated method stub
-	return null;
+	// TODO: can this line of code go in the abstract parent class?
+	return this.getClass().getSimpleName();
     }
 
     public static void main(String... args) {

@@ -37,14 +37,8 @@ public class DeeDoo extends Composition {
 		.add(rhythm.getPattern().repeat(4));
     }
 
-    private static final Pattern[] PARTS_ = { DRUMS_, FLUTE_, CHOIR_, GUITAR_ };
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Pattern[] getParts() {
-	return PARTS_;
+    public DeeDoo() {
+	addParts(DRUMS_, FLUTE_, CHOIR_, GUITAR_);
     }
 
     /**
