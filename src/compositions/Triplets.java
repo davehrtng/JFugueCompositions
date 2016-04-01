@@ -32,9 +32,9 @@ public class Triplets extends Composition {
 	    createRhythm());
 
     private static final Pattern LONG_ = new Pattern().setVoice(2)
-	    .setInstrument(Instrument.SYNTH_CHARANG.getMidiCode())
+	    .setInstrument(Instrument.ORGAN_REED.getMidiCode())
 	    .add(REST_FOUR_MEASURES_).add(REST_FOUR_MEASURES_)
-	    .add(new Pattern("Bh. Ai C#w | Ri | Bh. Ai C#w | Ri").repeat(4));
+	    .add(new Pattern("B4h. A4i C#w | Ri | Bh. Di C#w | Ri").repeat(4));
 
     private static final Pattern BASS_ = new Pattern().setVoice(3)
 	    .setInstrument(Instrument.SYNTH_CALIOPE.getMidiCode())

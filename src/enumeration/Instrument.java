@@ -37,7 +37,17 @@ public enum Instrument {
 
     SYNTH_VOICE(86),
 
-    PIANO(0);
+    PIANO(0),
+
+    ORGAN_DRAWBAR(17),
+
+    ORGAN_PERCUSSIVE(18),
+
+    ORGAN_ROCK(19),
+
+    ORGAN_CHURCH(20),
+
+    ORGAN_REED(21);
 
     private int midiCode_;
 
